@@ -6,11 +6,11 @@ function multiplicaPorSiMismo(valor, ejecuta) {
     }, 1000)
 }
 promise = new Promise((resolve,reject)=> {
-    let func1 = function (valor, resultado) {
-        console.log(`Finaliza con el valor = ${valor} y el resultado = ${resultado}`)
-        }
-        resolve([2,func1()])
+        resolve([5,function (valor, resultado) {
+            console.log(`Finaliza con el valor = ${valor} y el resultado = ${resultado}`)
+        }])
     }).then((dataPromise)=>{
-        multiplicaPorSiMismo(dataPromise[1],dataPromise[2])
+        console.log(dataPromise)
+        multiplicaPorSiMismo(dataPromise[0],dataPromise[1])
         console.log('Procesando')
 })
